@@ -8,25 +8,25 @@ export const httpService = axios.create({
 });
 
 const api = {
-  delete: (url: string): Promise<any> => httpService
+  delete: url => httpService
     .delete(url)
     .then(response => response.data)
     .catch((error) => {
       throw error;
     }),
-  get: (url: string): Promise<any> => httpService
+  get: url => httpService
     .get(url)
     .then(response => response.data)
     .catch((error) => {
       throw error;
     }),
-  post: (url: string, payload: any): Promise<any> => httpService
+  post: (url, payload) => httpService
     .post(url, payload)
     .then(response => response.data)
     .catch((error) => {
       throw error;
     }),
-  put: (url: string, payload: any): Promise<any> => httpService
+  put: (url, payload) => httpService
     .put(url, payload)
     .then(response => response.data)
     .catch((error) => {

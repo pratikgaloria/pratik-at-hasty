@@ -2,30 +2,46 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
-import { setLimit } from 'app/store/app/actions';
-import { getLimit } from 'app/store/app/selectors';
+import * as actions from 'app/store/app/actions';
+import * as selectors from 'app/store/app/selectors';
 
 const mapStateToProps = state => ({
-  limit: getLimit(state),
+  data: selectors.getTickerData(state),
+  limit: selectors.getLimit(state),
 });
 
 const mapDispatchToProps = ({
-  setCoinsLimit: setLimit,
+  getTicker: actions.getTicker,
 });
 
-const Overview = ({ limit, setCoinsLimit }) => (
-  <div>
-    <div>{limit}</div>
-    <button type="button" onClick={() => setCoinsLimit(3)}>Set limit</button>
-  </div>
-);
+export class OverviewComponent extends React.Component {
+  componentDidMount() {
+    const { getTicker } = this.props;
 
-Overview.propTypes = {
+    getTicker();
+  }
+
+  render() {
+    const { data, limit } = this.props;
+
+    return (
+      <div>
+        <span>{`Showing ${limit} coins`}</span>
+        {data.map(coin => (
+          <div key={coin.name}>{coin.name}</div>
+        ))}
+      </div>
+    );
+  }
+}
+
+OverviewComponent.propTypes = {
+  data: PropTypes.arrayOf(PropTypes.object).isRequired,
   limit: PropTypes.number.isRequired,
-  setCoinsLimit: PropTypes.func.isRequired,
+  getTicker: PropTypes.func.isRequired,
 };
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps,
-)(Overview);
+)(OverviewComponent);
