@@ -1,0 +1,22 @@
+{
+  "root": true,
+  "parser": "babel-eslint",
+  "extends": "airbnb",
+  "globals": {
+    "__DEV__": true,
+    "expect": true,
+    "window": true,
+    "document": true
+  },
+  "rules": {
+    "import/no-extraneous-dependencies": [
+      "error",
+      { "devDependencies": ["**/*_test.js*", "**/configureStore.js", "src/tests/setup.js"] }
+    ],
+    "global-require": 0,
+    "linebreak-style": 0
+  },
+  "settings": {
+    "import/resolver": "webpack"
+  }
+}
