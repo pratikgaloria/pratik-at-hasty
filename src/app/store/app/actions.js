@@ -11,8 +11,9 @@ export const setLimit = limit => ({
   payload: limit,
 });
 
-export const getTicker = () => ({
+export const getTicker = limit => ({
   type: constants.GET_TICKER,
+  payload: { limit },
 });
 
 export const getTickerSuccess = payload => ({

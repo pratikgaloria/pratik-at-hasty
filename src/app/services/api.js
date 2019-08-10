@@ -14,8 +14,8 @@ const api = {
     .catch((error) => {
       throw error;
     }),
-  get: url => httpService
-    .get(url)
+  get: (url, payload) => httpService
+    .get(url, payload)
     .then(response => response.data)
     .catch((error) => {
       throw error;

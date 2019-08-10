@@ -4,7 +4,7 @@ const initialState = {
   data: [],
   error: null,
   isLoading: false,
-  limit: 100,
+  limit: 10,
 };
 
 function appReducer(state = initialState, action) {

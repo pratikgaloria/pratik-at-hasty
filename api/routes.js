@@ -9,7 +9,8 @@ module.exports = (app) => {
   }));
 
   app.get(`${baseUrl}/ticker`, (req, res) => {
-    const url = `${apiUrl}/latest`;
+    const { limit } = req.query;
+    const url = `${apiUrl}/latest?limit=${limit}`;
 
     fetch(url, {
       method: 'GET',
