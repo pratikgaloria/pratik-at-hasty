@@ -17,3 +17,15 @@ export function* getTicker(action) {
 export function* watchGetTicker() {
   yield takeLatest(actions.constants.GET_TICKER, getTicker);
 }
+
+export function* setLimit(action) {
+  yield call(getTicker, {
+    payload: {
+      limit: action.payload,
+    },
+  });
+}
+
+export function* watchSetLimit() {
+  yield takeLatest(actions.constants.SET_LIMIT, setLimit);
+}

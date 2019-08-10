@@ -1,10 +1,11 @@
 import { all } from 'redux-saga/effects';
 
-import { watchGetTicker } from './app/sagas';
+import { watchGetTicker, watchSetLimit } from './app/sagas';
 
 function* rootSaga() {
   yield all([
     watchGetTicker(),
+    watchSetLimit(),
   ]);
 }
 
