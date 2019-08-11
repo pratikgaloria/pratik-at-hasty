@@ -10,7 +10,9 @@ describe('App sagas', () => {
     it('Should takeLatest GET_TICKER action.', () => {
       const generator = sagas.watchGetTicker();
 
-      expect(generator.next().value).toEqual(takeLatest(actions.constants.GET_TICKER, sagas.getTicker));
+      expect(generator.next().value).toEqual(
+        takeLatest(actions.constants.GET_TICKER, sagas.getTicker),
+      );
     });
   });
 
@@ -49,7 +51,9 @@ describe('App sagas', () => {
     it('Should takeLatest SET_LIMIT action.', () => {
       const generator = sagas.watchSetLimit();
 
-      expect(generator.next().value).toEqual(takeLatest(actions.constants.SET_LIMIT, sagas.setLimit));
+      expect(generator.next().value).toEqual(
+        takeLatest(actions.constants.SET_LIMIT, sagas.setLimit),
+      );
     });
   });
 

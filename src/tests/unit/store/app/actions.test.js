@@ -19,7 +19,7 @@ describe('App actions.', () => {
     const expectedAction = {
       type: actions.constants.GET_TICKER_SUCCESS,
       payload,
-    }
+    };
 
     expect(actions.getTickerSuccess(payload)).toEqual(expectedAction);
   });
@@ -30,7 +30,7 @@ describe('App actions.', () => {
     const expectedAction = {
       type: actions.constants.GET_TICKER_FAILURE,
       payload: error,
-    }
+    };
 
     expect(actions.getTickerFailure(error)).toEqual(expectedAction);
   });
