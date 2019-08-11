@@ -1,0 +1,44 @@
+html, body, h1, h2, h3, h4, h5, h6, ul, ol, li, p, hr, form, button {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Krub', sans-serif;
+}
+
+div {
+  box-sizing: border-box;
+}
+
+i {
+  font-size: 20px;
+}
+
+form {
+  display: block;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+input,
+textarea,
+select,
+button {
+  color: inherit;
+  font: inherit;
+  letter-spacing: inherit;
+  outline: none;
+}
+
+button {
+  background-color: inherit;
+  border: none;
+}
+
+table {
+  table-layout: fixed;
+  width: 100%;
+}

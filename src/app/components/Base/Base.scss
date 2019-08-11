@@ -1,0 +1,18 @@
+@import 'app/styles/imports.scss';
+
+.main {
+  @extend %flex;
+
+  background-color: $color-grey200;
+  min-height: 100vh;
+
+  @include bp-narrow {
+    flex-flow: column;
+  }
+}
+
+.container, .content {
+  @extend %layout-column;
+
+  flex: 1 0 auto;
+}

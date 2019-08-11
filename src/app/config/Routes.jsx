@@ -4,16 +4,18 @@ import { Route } from 'react-router-dom';
 import Overview from 'app/containers/Overview/Overview';
 import Liquidity from 'app/containers/Liquidity/Liquidity';
 
-const routes = [
+export const routes = [
   {
+    id: 'overview',
     Component: Overview,
     exact: true,
     path: '/',
   },
   {
+    id: 'liquidity',
     Component: Liquidity,
     exact: true,
-    path: '/liquidity/:coidId',
+    path: '/liquidity',
   },
 ];
 

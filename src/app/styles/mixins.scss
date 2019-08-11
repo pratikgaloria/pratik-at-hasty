@@ -1,0 +1,145 @@
+@import './variables.scss';
+
+@mixin bp-narrow {
+  @media (max-width: $max-xs), (max-height: $max-mn) {
+    @content;
+  }
+}
+
+@mixin bp-landscape-narrow {
+  @media (min-width: $max-mn) and (max-height: $max-mn) {
+    @content;
+  }
+}
+
+@mixin bp-landscape-medium {
+  @media (min-width: $max-xs) and (max-height: $max-mn) {
+    @content;
+  }
+}
+
+@mixin bp-medium {
+  @media (min-width: $min-xs) and (min-height: $min-mn) {
+    @content;
+  }
+}
+
+@mixin bp-tablet {
+  @media (min-width: $max-sm) and (max-width: $max-md) {
+    @content;
+  }
+}
+
+@mixin bp-medium-only {
+  @media (min-width: $min-xs) and (max-width: $max-md) and (min-height: $min-mn) {
+    @content;
+  }
+}
+
+@mixin bp-wide {
+  @media (min-width: $min-md) and (min-height: $min-mn) {
+    @content;
+  }
+}
+
+@mixin bp-wide-lt {
+  @media (max-width: $max-md), (max-height: $max-mn) {
+    @content;
+  }
+}
+
+@mixin flex {
+  display: flex;
+}
+
+@mixin flex-inline {
+  display: inline-flex;
+}
+
+@mixin flex-between {
+  justify-content: space-between;
+}
+
+@mixin flex-equal {
+  flex: 1 1 0;
+  min-width: 0;
+  width: 0;
+}
+
+@mixin flex-wrap {
+  flex-wrap: wrap;
+}
+
+@mixin center-main-axis {
+  justify-content: center;
+}
+
+@mixin center-cross-axis {
+  align-items: center;
+}
+
+@mixin flex-center {
+  @include center-main-axis;
+  @include center-cross-axis;
+}
+
+@mixin row {
+  flex-direction: row;
+}
+
+@mixin column {
+  flex-direction: column;
+}
+
+@mixin evenly {
+  justify-content: space-around;
+
+  &::before, &::after {
+    content: '';
+    display: block;
+  }
+}
+
+@mixin layout-row {
+  @include flex;
+  @include row;
+}
+
+@mixin layout-column {
+  @include flex;
+  @include column;
+}
+
+@mixin layout-column-center {
+  @include layout-column;
+  @include flex-center;
+}
+
+@mixin layout-center {
+  @include flex;
+  @include flex-center;
+}
+
+@mixin layout-evenly {
+  @include flex;
+  @include evenly;
+}
+
+@mixin hover {
+  @include bp-wide {
+    cursor: pointer;
+
+    &:hover {
+      @content;
+    }
+  }
+}
+
+@mixin highlight {
+  opacity: .7;
+  transition: opacity .5s ease-out;
+
+  &:hover {
+    opacity: 1;
+  }
+}

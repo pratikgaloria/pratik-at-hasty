@@ -1,0 +1,37 @@
+$base-path: '/' !default;
+$base: 8px !default;
+
+$max-xm: $base * 40 !default; // 320px
+$max-mn: $base * 60 !default; // 480px
+$max-xs: $base * 80 !default; // 640px
+$max-sm: $base * 96 !default; // 768px
+$max-md: $base * 128 !default; // 1024px
+$max-lg: $base * 170.75 !default; // 1366px
+$max-xl: $base * 240 !default; // 1920px
+
+$min-xm: $max-xm + 1;
+$min-mn: $max-mn + 1;
+$min-xs: $max-xs + 1;
+$min-sm: $max-sm + 1;
+$min-md: $max-md + 1;
+$min-lg: $max-lg + 1;
+
+$breakpoints: xm mn xs sm md lg;
+
+$bp-min: (
+  xm: $min-xm,
+  mn: $min-mn,
+  xs: $min-xs,
+  sm: $min-sm,
+  md: $min-md,
+  lg: $min-lg,
+);
+
+$bp-max: (
+  xm: $max-xm,
+  mn: $max-mn,
+  xs: $max-xs,
+  sm: $max-sm,
+  md: $max-md,
+  lg: $max-lg
+);

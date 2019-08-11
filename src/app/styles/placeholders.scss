@@ -1,0 +1,69 @@
+@import './mixins.scss';
+
+%flex {
+  @include flex;
+}
+
+%flex-inline {
+  @include flex-inline;
+}
+
+%flex-between {
+  @include flex-between;
+}
+
+%flex-equal {
+  @include flex-equal;
+}
+
+%flex-wrap {
+  @include flex-wrap;
+}
+
+%center-main-axis {
+  @include center-main-axis;
+}
+
+%center-cross-axis {
+  @include center-cross-axis;
+}
+
+%flex-center {
+  @include flex-center;
+}
+
+%row {
+  @include row;
+}
+
+%column {
+  @include column;
+}
+
+%evenly {
+  @include evenly;
+}
+
+%layout-row {
+  @include layout-row;
+}
+
+%layout-column {
+  @include layout-column;
+}
+
+%layout-column-center {
+  @include layout-column-center;
+}
+
+%layout-center {
+  @include layout-center;
+}
+
+%layout-evenly {
+  @include layout-evenly;
+}
+
+%highlight {
+  @include highlight;
+}

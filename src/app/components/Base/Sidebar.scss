@@ -1,0 +1,54 @@
+@import 'app/styles/imports.scss';
+
+$sidebar-width: 250px;
+
+.sidebar {
+  background: linear-gradient(to bottom, $color-black 0%, $color-grey800 100%);
+  flex: 0 0 $sidebar-width;
+  padding: 0 20px;
+
+  @include bp-narrow {
+    display: none;
+  }
+}
+
+.container {
+  @extend %layout-column;
+}
+
+.menu {
+  margin-top: 10px;
+
+  &-link {
+    @extend %flex;
+    @extend %highlight;
+
+    border-bottom: 1px solid $color-grey800;
+    color: $color-white;
+    font: 700 16px/1.5 $font-krub;
+    padding: 20px 0;
+    text-decoration: none;
+
+    i {
+      font-size: 18px;
+      padding: 2px 10px 0 0;
+    }
+
+    &-active {
+      opacity: 1;
+    }
+  }
+
+  &-label {
+    @extend %layout-column;
+
+    flex: 1 0 auto;
+    text-decoration: none;
+
+    &-info {
+      color: $color-grey400;
+      font-size: 12px;
+      font-weight: 400;
+    }
+  }
+}
