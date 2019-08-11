@@ -6,11 +6,6 @@ export const constants = {
   SET_LIMIT: '[APP] SET_LIMIT',
 };
 
-export const setLimit = limit => ({
-  type: constants.SET_LIMIT,
-  payload: limit,
-});
-
 export const getTicker = limit => ({
   type: constants.GET_TICKER,
   payload: { limit },
@@ -24,4 +19,9 @@ export const getTickerSuccess = payload => ({
 export const getTickerFailure = error => ({
   type: constants.GET_TICKER_FAILURE,
   payload: error,
+});
+
+export const setLimit = limit => ({
+  type: constants.SET_LIMIT,
+  payload: limit,
 });

@@ -19,14 +19,14 @@
       "<rootDir>/src/tests"
     ],
     "collectCoverage": true,
-    "coverageDirectory": "<rootDir>/tests/coverage",
+    "coverageDirectory": "<rootDir>/src/tests/coverage",
     "collectCoverageFrom": [
-      "**/*.{js,tsx}",
+      "**/*.{js,jsx}",
       "!**/index.js"
     ],
     "coveragePathIgnorePatterns": [
       "/src/tests/",
-      "/src/App.tsx"
+      "/src/App.jsx"
     ],
     "setupFiles": [
       "<rootDir>/src/tests/setup.js"
