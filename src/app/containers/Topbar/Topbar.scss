@@ -1,0 +1,31 @@
+@import 'app/styles/imports.scss';
+
+$topbar-height: 60px;
+
+.topbar {
+  @extend %layout-center;
+
+  background: $color-white;
+  border-bottom: 1px solid $color-grey400;
+  height: $topbar-height;
+  padding: 20px;
+}
+
+.options {
+  font-size: 14px;
+  font-weight: 700;
+
+  select {
+    font-weight: 400;
+    height: 30px;
+    margin: 0 5px;
+    padding: 0 10px;
+  }
+}
+
+.title {
+  flex: 1;
+
+  font-size: 18px;
+  font-weight: 700;
+}

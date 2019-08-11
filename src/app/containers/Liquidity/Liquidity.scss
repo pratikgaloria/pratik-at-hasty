@@ -1,0 +1,7 @@
+@import 'app/styles/imports.scss';
+
+.content {
+  @extend %layout-center;
+
+  padding: 20px;
+}

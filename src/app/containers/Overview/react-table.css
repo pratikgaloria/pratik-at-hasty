@@ -1,0 +1,12 @@
+.ReactTable .rt-thead.-header {
+  box-shadow: none;
+  border-bottom: 1px solid #bbb;
+  font-size: 18px;
+  font-weight: 700;
+  padding: 10px 0;
+}
+
+.ReactTable .rt-td {
+  font-size: 16px;
+  padding: 10px;
+}

@@ -6,6 +6,7 @@ import Topbar from 'app/containers/Topbar/Topbar';
 import Chart from 'app/components/Chart/Chart';
 import * as actions from 'app/store/app/actions';
 import * as selectors from 'app/store/app/selectors';
+import styles from './Liquidity.scss';
 
 const mapStateToProps = state => ({
   data: selectors.getTickerData(state),
@@ -29,10 +30,12 @@ export class LiquidityComponent extends React.Component {
     const { data } = this.props;
 
     const series = data.map(coin => ({
-      name: coin.symbol,
+      name: coin.name,
+      symbol: coin.symbol,
       x: coin.quote.USD.market_cap,
       y: coin.quote.USD.volume_24h,
       z: Math.abs(coin.quote.USD.percent_change_24h),
+      color: coin.quote.USD.percent_change_24h < 0 ? '#be2623' : '#098952',
     }));
 
     return series;
@@ -40,9 +43,11 @@ export class LiquidityComponent extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className={styles.container}>
         <Topbar title="Liquidity" />
-        <Chart data={this.createData()} />
+        <div className={styles.content}>
+          <Chart data={this.createData()} />
+        </div>
       </div>
     );
   }

@@ -3,11 +3,13 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import ReactTable from 'react-table';
 import 'react-table/react-table.css';
+import './react-table.css';
 
 import Topbar from 'app/containers/Topbar/Topbar';
 import NumberFormatter from 'app/components/NumberFormatter/NumberFormatter';
 import * as actions from 'app/store/app/actions';
 import * as selectors from 'app/store/app/selectors';
+import styles from './Overview.scss';
 
 const mapStateToProps = state => ({
   data: selectors.getTickerData(state),
@@ -29,6 +31,7 @@ export class OverviewComponent extends React.Component {
     {
       Header: 'Rank',
       accessor: 'cmc_rank',
+      maxWidth: 100,
     },
     {
       Header: 'Name',
@@ -39,12 +42,14 @@ export class OverviewComponent extends React.Component {
       Header: 'Price',
       accessor: coin => coin.quote.USD.price,
       Cell: props => <NumberFormatter value={props.value} prefix="$" />,
+      maxWidth: 200,
     },
     {
       id: 'priceChange',
       Header: 'Price Change (24h)',
       accessor: coin => coin.quote.USD.percent_change_24h,
       Cell: props => <span>{`${parseFloat(props.value).toFixed(2)}%`}</span>,
+      maxWidth: 200,
     },
     {
       id: 'marketCap',
@@ -66,13 +71,16 @@ export class OverviewComponent extends React.Component {
     return (
       <div>
         <Topbar title="Market Overview" />
-        <ReactTable
-          data={data}
-          columns={this.getColumns()}
-          minRows={0}
-          pageSize={limit}
-          showPagination={false}
-        />
+        <div className={styles.content}>
+          <ReactTable
+            className="-striped"
+            data={data}
+            columns={this.getColumns()}
+            minRows={0}
+            pageSize={limit}
+            showPagination={false}
+          />
+        </div>
       </div>
     );
   }

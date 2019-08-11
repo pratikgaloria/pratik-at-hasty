@@ -21,8 +21,8 @@ class Sidebar extends React.PureComponent {
                 activeClassName={styles.linkActive}
               >
                 <i className={route.icon} />
-                <div className={styles.linkLabel}>
-                  <span className={styles.linkLabelTitle}>{route.id}</span>
+                <div className={styles.label}>
+                  <span className={styles.labelTitle}>{route.id}</span>
                 </div>
               </NavLink>
             ))}

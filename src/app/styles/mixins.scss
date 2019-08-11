@@ -136,7 +136,7 @@
 }
 
 @mixin highlight {
-  opacity: .7;
+  opacity: .6;
   transition: opacity .5s ease-out;
 
   &:hover {
