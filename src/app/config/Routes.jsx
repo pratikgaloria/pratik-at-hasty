@@ -7,12 +7,14 @@ import Liquidity from 'app/containers/Liquidity/Liquidity';
 export const routes = [
   {
     id: 'overview',
+    icon: 'fas fa-stream',
     Component: Overview,
     exact: true,
     path: '/',
   },
   {
     id: 'liquidity',
+    icon: 'fas fa-chart-bar',
     Component: Liquidity,
     exact: true,
     path: '/liquidity',
