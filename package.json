@@ -9,8 +9,8 @@
     "build": "webpack -p --progress --colors",
     "lint": "eslint src/**/*.{js,jsx}",
     "prettier": "prettier --write \"src/**/*.{js,jsx,scss}\"",
-    "production": "npm run build && babel-node server",
-    "start": "webpack-dev-server --mode development --hot --progress --color --port 8080 --open",
+    "start": "npm run build && npm run server",
+    "start:dev": "webpack-dev-server --mode development --hot --progress --color --port 8080 --open",
     "server": "babel-node server",
     "test": "jest --coverage"
   },
