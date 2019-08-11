@@ -5,6 +5,7 @@
 
   background-color: $color-grey200;
   min-height: 100vh;
+  overflow: hidden;
 
   @include bp-narrow {
     flex-flow: column;
@@ -14,5 +15,6 @@
 .container, .content {
   @extend %layout-column;
 
-  flex: 1 0 auto;
+  flex: 1 1 auto;
+  overflow: auto;
 }
