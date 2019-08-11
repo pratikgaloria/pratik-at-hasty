@@ -2,11 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
-import Topbar from 'app/containers/Topbar/Topbar';
 import Chart from 'app/components/Chart/Chart';
 import * as actions from 'app/store/app/actions';
 import * as selectors from 'app/store/app/selectors';
-import styles from './Liquidity.scss';
 
 const mapStateToProps = state => ({
   data: selectors.getTickerData(state),
@@ -43,12 +41,7 @@ export class LiquidityComponent extends React.Component {
 
   render() {
     return (
-      <div className={styles.container}>
-        <Topbar title="Liquidity" />
-        <div className={styles.content}>
-          <Chart data={this.createData()} />
-        </div>
-      </div>
+      <Chart data={this.createData()} />
     );
   }
 }

@@ -7,6 +7,10 @@
   padding: 10px 0;
 }
 
+.ReactTable .rt-table .rt-tr {
+  text-align: left;
+}
+
 .ReactTable .rt-td {
   font-size: 14px;
   padding: 10px;

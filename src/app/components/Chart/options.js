@@ -9,7 +9,6 @@ export const tooltipFormatter = (timestamp, point) => `
 export default {
   chart: {
     borderRadius: 5,
-    height: 500,
     plotBorderWidth: 1,
     spacing: [50, 50, 30, 30],
     type: 'bubble',

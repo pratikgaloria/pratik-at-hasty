@@ -3,12 +3,14 @@
 $sidebar-width: 250px;
 
 .sidebar {
-  background: linear-gradient(to bottom, #313a87 0%, #1c213f 100%);
+  background: linear-gradient(to bottom, $color-jacksons-purple 0%, $color-midnight-express 100%);
   flex: 0 0 $sidebar-width;
   padding: 0 20px;
 
   @include bp-narrow {
-    display: none;
+    background: $color-jacksons-purple;
+    flex: 0 0 auto;
+    padding: 5px 20px;
   }
 }
 
@@ -18,12 +20,18 @@ $sidebar-width: 250px;
 
 .menu {
   margin-top: 10px;
+
+  @include bp-narrow {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 0;
+  }
 }
 
 .link {
   @extend %flex;
   @extend %highlight;
-  
+
   color: $color-white;
   font: 700 16px/1.5 $font-krub;
   padding: 20px 0;
@@ -45,10 +53,4 @@ $sidebar-width: 250px;
 
   flex: 1 0 auto;
   text-decoration: none;
-
-  &-info {
-    color: $color-grey400;
-    font-size: 12px;
-    font-weight: 400;
-  }
 }

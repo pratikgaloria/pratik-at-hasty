@@ -5,11 +5,9 @@ import ReactTable from 'react-table';
 import 'react-table/react-table.css';
 import './react-table.css';
 
-import Topbar from 'app/containers/Topbar/Topbar';
 import NumberFormatter from 'app/components/NumberFormatter/NumberFormatter';
 import * as actions from 'app/store/app/actions';
 import * as selectors from 'app/store/app/selectors';
-import styles from './Overview.scss';
 
 const mapStateToProps = state => ({
   data: selectors.getTickerData(state),
@@ -69,19 +67,14 @@ export class OverviewComponent extends React.Component {
     const { data, limit } = this.props;
 
     return (
-      <div>
-        <Topbar title="Market Overview" />
-        <div className={styles.content}>
-          <ReactTable
-            className="-striped"
-            data={data}
-            columns={this.getColumns()}
-            minRows={0}
-            pageSize={limit}
-            showPagination={false}
-          />
-        </div>
-      </div>
+      <ReactTable
+        className="-striped"
+        data={data}
+        columns={this.getColumns()}
+        minRows={0}
+        pageSize={limit}
+        showPagination={false}
+      />
     );
   }
 }

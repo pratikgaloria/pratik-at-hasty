@@ -11,6 +11,7 @@ export const routes = [
     Component: Overview,
     exact: true,
     path: '/',
+    title: 'Market overview',
   },
   {
     id: 'liquidity',
