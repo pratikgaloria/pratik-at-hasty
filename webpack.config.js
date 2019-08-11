@@ -35,28 +35,9 @@ module.exports = {
         },
       },
       {
-        test: /\.css$/,
-        use: [
-          isProduction ? MiniCssExtractPlugin.loader : 'style-loader',
-          {
-            loader: 'css-loader',
-            query: {
-              modules: true,
-              sourceMap: !isProduction,
-              importLoaders: 1,
-              localIdentName: isProduction ? '[hash:base64:5]' : '[local]__[hash:base64:5]',
-            },
-          },
-          {
-            loader: 'postcss-loader',
-            options: {
-              ident: 'postcss',
-              plugins: [
-                require('autoprefixer'),
-              ],
-            },
-          },
-        ],
+        test: /\.css$/i,
+        exclude: /\.module\.css$/i,
+        use: ['style-loader', 'css-loader'],
       },
       {
         test: /\.scss$/,
@@ -65,11 +46,14 @@ module.exports = {
           {
             loader: 'css-loader',
             options: {
-              camelCase: true,
-              modules: true,
+              modules: {
+                mode: 'local',
+                localIdentName: '[name]_[local]-[hash:base64:5]',
+                context: path.resolve(__dirname, 'src'),
+              },
+              localsConvention: 'camelCase',
               sourceMap: true,
               importLoaders: 2,
-              localIdentName: '[name]_[local]_[hash:base64:5]',
             },
           },
           {
@@ -88,7 +72,7 @@ module.exports = {
       { test: /\.(a?png|svg)$/, use: 'url-loader?limit=10000' },
       {
         test: /\.(jpe?g|gif|bmp|mp3|mp4|ogg|wav|eot|ttf|woff|woff2)$/,
-        use: 'file-loader'
+        use: 'file-loader',
       },
     ],
   },
