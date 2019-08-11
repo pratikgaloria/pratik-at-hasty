@@ -2,9 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
+import Topbar from 'app/containers/Topbar/Topbar';
+import Chart from 'app/components/Chart/Chart';
 import * as actions from 'app/store/app/actions';
 import * as selectors from 'app/store/app/selectors';
-import Chart from 'app/components/Chart/Chart';
 
 const mapStateToProps = state => ({
   data: selectors.getTickerData(state),
@@ -17,9 +18,11 @@ const mapDispatchToProps = ({
 
 export class LiquidityComponent extends React.Component {
   componentDidMount() {
-    const { getTicker, limit } = this.props;
+    const { data, getTicker, limit } = this.props;
 
-    getTicker(limit);
+    if (!data.length) {
+      getTicker(limit);
+    }
   }
 
   createData = () => {
@@ -37,7 +40,10 @@ export class LiquidityComponent extends React.Component {
 
   render() {
     return (
-      <Chart data={this.createData()} />
+      <div>
+        <Topbar title="Liquidity" />
+        <Chart data={this.createData()} />
+      </div>
     );
   }
 }
