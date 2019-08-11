@@ -1,21 +1,10 @@
 import api from 'app/services/api';
 import * as services from 'app/services/ticker';
+import { coin1 as coin } from 'tests/mocks/ticker';
 
 it('should call getTicker service with limit', (done) => {
   const expectedData = {
-    data: [
-      {
-        id: 1,
-        cmc_rank: 1,
-        name: 'Bitcoin',
-        quote: {
-          USD: {
-            price: 11379.82,
-            market_cap: 203352417289.25,
-          },
-        },
-      },
-    ],
+    data: [coin],
   };
   const httpServiceGetMock = jest.fn();
   api.get = httpServiceGetMock.mockReturnValue(Promise.resolve(expectedData));

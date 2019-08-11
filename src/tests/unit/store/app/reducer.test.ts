@@ -1,5 +1,6 @@
 import reducer, { initialState } from 'app/store/app/reducer';
 import * as actions from 'app/store/app/actions';
+import { coin1 as coin } from 'tests/mocks/ticker';
 
 describe('App reducer.', () => {
   it('Should create the initial state.', () => {
@@ -35,38 +36,14 @@ describe('App reducer.', () => {
       {
         type: actions.constants.GET_TICKER_SUCCESS,
         payload: {
-          data: [
-            {
-              id: 1,
-              cmc_rank: 1,
-              name: 'Bitcoin',
-              quote: {
-                USD: {
-                  price: 11379.82,
-                  market_cap: 203352417289.25,
-                },
-              },
-            },
-          ],
+          data: [coin],
         },
       },
     );
 
     const expectedState = {
       ...initialState,
-      data: [
-        {
-          id: 1,
-          cmc_rank: 1,
-          name: 'Bitcoin',
-          quote: {
-            USD: {
-              price: 11379.82,
-              market_cap: 203352417289.25,
-            },
-          },
-        },
-      ],
+      data: [coin],
       isLoading: false,
       error: null,
     };

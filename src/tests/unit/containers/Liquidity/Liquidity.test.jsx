@@ -5,6 +5,7 @@ import configureStore from 'redux-mock-store';
 
 import { initialState } from 'app/store/app/reducer';
 import Liquidity, { LiquidityComponent } from 'app/containers/Liquidity/Liquidity';
+import { coin1, coin2 } from 'tests/mocks/ticker';
 
 describe('Liquidity component.', () => {
   const mockStore = configureStore();
@@ -38,35 +39,6 @@ describe('Liquidity component.', () => {
   });
 
   it('createData should return appropriate series object for chart.', () => {
-    const coin1 = {
-      id: 1,
-      cmc_rank: 1,
-      name: 'Bitcoin',
-      symbol: 'BTC',
-      quote: {
-        USD: {
-          price: 11379.82,
-          market_cap: 203352417289.25,
-          percent_change_24h: 4.2324,
-          volume_24h: 4334234234,
-        },
-      },
-    };
-    const coin2 = {
-      id: 2,
-      cmc_rank: 2,
-      name: 'Etherium',
-      symbol: 'ETH',
-      quote: {
-        USD: {
-          price: 2379.82,
-          market_cap: 34552417289.25,
-          percent_change_24h: -2.123,
-          volume_24h: 344234234,
-        },
-      },
-    };
-
     shallowWrapper.setProps({
       data: [coin1, coin2],
     });
@@ -75,20 +47,20 @@ describe('Liquidity component.', () => {
 
     expect(data[0]).toEqual({
       color: '#098952',
-      name: 'Bitcoin',
-      symbol: 'BTC',
-      x: 203352417289.25,
-      y: 4334234234,
-      z: 4.2324,
+      name: coin1.name,
+      symbol: coin1.symbol,
+      x: coin1.quote.USD.market_cap,
+      y: coin1.quote.USD.volume_24h,
+      z: Math.abs(coin1.quote.USD.percent_change_24h),
     });
 
     expect(data[1]).toEqual({
       color: '#be2623',
-      name: 'Etherium',
-      symbol: 'ETH',
-      x: 34552417289.25,
-      y: 344234234,
-      z: 2.123,
+      name: coin2.name,
+      symbol: coin2.symbol,
+      x: coin2.quote.USD.market_cap,
+      y: coin2.quote.USD.volume_24h,
+      z: Math.abs(coin2.quote.USD.percent_change_24h),
     });
   });
 });

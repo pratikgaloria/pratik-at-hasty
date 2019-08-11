@@ -3,6 +3,7 @@ import { call, put, takeLatest } from 'redux-saga/effects';
 import * as sagas from 'app/store/app/sagas';
 import * as actions from 'app/store/app/actions';
 import * as services from 'app/services/ticker';
+import { coin1 as coin } from 'tests/mocks/ticker';
 
 describe('App sagas', () => {
   describe('watchGetTicker', () => {
@@ -21,19 +22,7 @@ describe('App sagas', () => {
       };
       const generator = sagas.getTicker(action);
       const payload = {
-        data: [
-          {
-            id: 1,
-            cmc_rank: 1,
-            name: 'Bitcoin',
-            quote: {
-              USD: {
-                price: 11379.82,
-                market_cap: 203352417289.25,
-              },
-            },
-          },
-        ],
+        data: [coin],
       };
 
       expect(generator.next().value).toEqual(call(services.getTicker, action.payload.limit));

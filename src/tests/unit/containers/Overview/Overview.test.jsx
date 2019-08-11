@@ -5,6 +5,7 @@ import configureStore from 'redux-mock-store';
 
 import { initialState } from 'app/store/app/reducer';
 import Overview, { OverviewComponent } from 'app/containers/Overview/Overview';
+import { coin1 as coin } from 'tests/mocks/ticker';
 
 describe('Overview component.', () => {
   const mockStore = configureStore();
@@ -34,20 +35,6 @@ describe('Overview component.', () => {
   });
 
   it('getColumns should returns appropriate set of columns.', () => {
-    const coin = {
-      id: 1,
-      cmc_rank: 1,
-      name: 'Bitcoin',
-      quote: {
-        USD: {
-          price: 11379.82,
-          market_cap: 203352417289.25,
-          percent_change_24h: 4.2324,
-          volume_24h: 4334234234,
-        },
-      },
-    };
-
     shallowWrapper.setProps({
       data: [coin],
     });

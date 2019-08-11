@@ -1,4 +1,5 @@
 import * as actions from 'app/store/app/actions';
+import { coin1 as coin } from 'tests/mocks/ticker';
 
 describe('App actions.', () => {
   it('Should create an action to get Ticker', () => {
@@ -12,19 +13,7 @@ describe('App actions.', () => {
 
   it('Should create a success action to get Ticker', () => {
     const payload = {
-      data: [
-        {
-          id: 1,
-          cmc_rank: 1,
-          name: 'Bitcoin',
-          quote: {
-            USD: {
-              price: 11379.82,
-              market_cap: 203352417289.25,
-            },
-          },
-        },
-      ],
+      data: [coin],
     };
 
     const expectedAction = {

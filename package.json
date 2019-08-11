@@ -32,7 +32,8 @@
     ],
     "moduleNameMapper": {
       "\\.(css|styl|less|sass|scss|svg)$": "identity-obj-proxy",
-      "^app(.*)$": "<rootDir>/src/app$1"
+      "^app(.*)$": "<rootDir>/src/app$1",
+      "^tests(.*)$": "<rootDir>/src/tests$1"
     }
   },
   "license": "MIT",

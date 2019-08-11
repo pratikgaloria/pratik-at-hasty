@@ -23,6 +23,7 @@ module.exports = {
     extensions: ['.js', '.jsx', '.json'],
     alias: {
       app: path.resolve(__dirname, 'src/app/'),
+      tests: path.resolve(__dirname, 'src/tests/'),
     },
   },
   module: {

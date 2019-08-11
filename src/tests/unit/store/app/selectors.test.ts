@@ -1,37 +1,16 @@
 import * as selectors from 'app/store/app/selectors';
+import { coin1 as coin } from 'tests/mocks/ticker';
 
 describe('App selectors.', () => {
   it('getTickerData returns valid object from the state', () => {
     const state = {
       app: {
-        data: [
-          {
-            id: 1,
-            cmc_rank: 1,
-            name: 'Bitcoin',
-            quote: {
-              USD: {
-                price: 11379.82,
-                market_cap: 203352417289.25,
-              },
-            },
-          },
-        ],
+        data: [coin],
       },
     };
 
     const actualObject = selectors.getTickerData(state);
-    const expectedObject = [{
-      id: 1,
-      cmc_rank: 1,
-      name: 'Bitcoin',
-      quote: {
-        USD: {
-          price: 11379.82,
-          market_cap: 203352417289.25,
-        },
-      },
-    }];
+    const expectedObject = [coin];
 
     expect(actualObject).toEqual(expectedObject);
   });
