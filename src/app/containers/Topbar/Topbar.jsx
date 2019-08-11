@@ -42,9 +42,13 @@ export class TopbarComponent extends React.Component {
 }
 
 TopbarComponent.propTypes = {
-  title: PropTypes.string.isRequired,
+  title: PropTypes.string,
   limit: PropTypes.number.isRequired,
   setLimit: PropTypes.func.isRequired,
+};
+
+TopbarComponent.defaultProps = {
+  title: '',
 };
 
 export default connect(

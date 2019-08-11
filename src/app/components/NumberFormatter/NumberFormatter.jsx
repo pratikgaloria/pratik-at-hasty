@@ -15,12 +15,13 @@ const NumberFormatter = ({ value, prefix, decimal }) => (
 NumberFormatter.propTypes = {
   decimal: PropTypes.number,
   prefix: PropTypes.string,
-  value: PropTypes.number.isRequired,
+  value: PropTypes.number,
 };
 
 NumberFormatter.defaultProps = {
   decimal: 2,
   prefix: '',
+  value: 0,
 };
 
 export default NumberFormatter;
